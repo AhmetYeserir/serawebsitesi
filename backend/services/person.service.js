@@ -4,8 +4,8 @@ const getAll = async () => {
   return await db.Person.findAll();
 };
 
-const findPersonById = async (id) => {
-  return await db.Person.findByPk(id);
+const findPersonByUsername = async (username) => {
+  return await db.Person.findOne({where:{Username:username}});
 };
 
 const createPerson = async ({ Username, Password }) => {
@@ -33,7 +33,7 @@ const deletePerson = async (Id) => {
 
 module.exports = {
   getAll,
-  findPersonById,
+  findPersonByUsername,
   createPerson,
   updatePerson,
   deletePerson,
